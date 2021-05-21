@@ -1,0 +1,11 @@
+.ul-list li {
+  list-style-type: none;
+}
+
+.ul-list {
+  text-align: left;
+}
+
+.legend-text {
+  font-size: 13px;
+}

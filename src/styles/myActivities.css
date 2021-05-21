@@ -1,0 +1,12 @@
+.my-request-heading {
+  font-weight: 700;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+.my-request-card {
+  background-color: aliceblue;
+}
+
+.req-title {
+  text-transform: capitalize;
+}

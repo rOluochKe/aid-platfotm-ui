@@ -1,0 +1,15 @@
+.volunteers-card p {
+  text-align: left;
+  margin: 0px;
+}
+
+.volunteers-card:hover {
+  background-color: aliceblue;
+}
+
+a.mesg-link:hover {
+  text-decoration: none;
+}
+a.mesg-link p {
+  color: #083e9e;
+}

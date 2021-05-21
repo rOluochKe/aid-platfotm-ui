@@ -1,0 +1,26 @@
+.signin-banner,
+.signup-banner {
+  width: 100%;
+  min-height: 100vh;
+}
+
+label {
+  float: left;
+  margin-bottom: 0px !important;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+.auth-heading {
+  font-size: 35px;
+  line-height: 40px;
+  font-weight: bold;
+  text-align: left;
+  color: #083e9e;
+  margin-bottom: 0px;
+}
+
+.auth-text {
+  color: #627081;
+  text-align: left;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
