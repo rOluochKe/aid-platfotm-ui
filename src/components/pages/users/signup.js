@@ -81,103 +81,103 @@ const Signup = (props) => {
       <Navbar ownProps={props} />
       <div className="container-fluid signup-banner">
         <div className="row pl-3">
-          <div className="col-md-3"></div>
-          <div className="col-md-6">
+          <div className="offset-md-3 col-md-6">
             <ToastContainer />
-            <form className="card mt-5 pl-3">
-              <h1 className="auth-heading">Sign Up</h1>
-              <p className="text-left text-danger">{error}</p>
-              <div className="row input-group">
-                <div className="col-12 col-md-6 mb-3">
-                  <label>First Name</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="First name"
-                    value={firstname}
-                    onChange={(e) => setFirstname(e.target.value)}
-                    aria-label="firstname"
-                  />
-                </div>
-                <div className="col-12 col-md-6 mb-3">
-                  <label>Last Name</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Last name"
-                    value={lastname}
-                    onChange={(e) => setLastname(e.target.value)}
-                    aria-label="lastname"
-                  />
-                </div>
-              </div>
-              <div className="row input-group">
-                <div className="col-12 mb-3">
-                  <label>Email</label>
-                  <input
-                    type="email"
-                    className="form-control"
-                    placeholder="Email address"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    aria-label="email"
-                  />
-                </div>
-              </div>
-              <div className="row input-group">
-                <div className="col-12 mb-3">
-                  <label>Government Approved ID</label>
-                  <input
-                    type="file"
-                    className="form-control"
-                    onChange={(e) => setImage(e.target.files[0])}
-                    accept="image/png,image/jpeg,application/pdf"
-                  />
-                </div>
-              </div>
-              <div className="row input-group">
-                <div className="col-12 mb-3">
-                  <label>Password</label>
-                  <input
-                    type="password"
-                    className="form-control"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    aria-label="password"
-                  />
-                </div>
-              </div>
-              <div className="row btn-group pr-4">
-                <div className="col-12 mb-3">
-                  {notification ? (
-                    <img
-                      src={processing}
-                      style={{ height: "70px" }}
-                      alt="processing-loader"
+            <div className="card bg-light mt-5 mb-5">
+              <form className="card-body">
+                <h1 className="auth-heading">Sign Up</h1>
+                <p className="text-left text-danger">{error}</p>
+                <div className="row input-group">
+                  <div className="col-12 col-md-6 mb-3">
+                    <label>First Name</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="First name"
+                      value={firstname}
+                      onChange={(e) => setFirstname(e.target.value)}
+                      aria-label="firstname"
                     />
-                  ) : (
-                    <button
-                      type="button"
-                      className="form-control btn btn-primary"
-                      onClick={handleSubmit}
-                    >
-                      {btnValue}
-                    </button>
-                  )}
+                  </div>
+                  <div className="col-12 col-md-6 mb-3">
+                    <label>Last Name</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Last name"
+                      value={lastname}
+                      onChange={(e) => setLastname(e.target.value)}
+                      aria-label="lastname"
+                    />
+                  </div>
                 </div>
-              </div>
-              <div className="row input-group pl-3 mb-3">
-                <p>
-                  Already have an account?{" "}
-                  <Link to="/sign-in" className="">
-                    Log In
-                  </Link>
-                </p>
-              </div>
-            </form>
+                <div className="row input-group">
+                  <div className="col-12 mb-3">
+                    <label>Email</label>
+                    <input
+                      type="email"
+                      className="form-control"
+                      placeholder="Email address"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      aria-label="email"
+                    />
+                  </div>
+                </div>
+                <div className="row input-group text-left">
+                  <div className="col-12 mb-3">
+                    <label>Identification Card (Government Approved)</label>
+                    <input
+                      type="file"
+                      className="form-control"
+                      onChange={(e) => setImage(e.target.files[0])}
+                      accept="image/png,image/jpeg,application/pdf"
+                    />
+                  </div>
+                </div>
+                <div className="row input-group">
+                  <div className="col-12 mb-3">
+                    <label>Password</label>
+                    <input
+                      type="password"
+                      className="form-control"
+                      placeholder="Password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      aria-label="password"
+                    />
+                  </div>
+                </div>
+                <div className="row w-50 mb-3">
+                  <div className="col-12">
+                    {notification ? (
+                      <img
+                        src={processing}
+                        style={{ height: "70px" }}
+                        alt="processing-loader"
+                      />
+                    ) : (
+                      <button
+                        type="button"
+                        className="form-control btn btn-primary"
+                        onClick={handleSubmit}
+                      >
+                        {btnValue}
+                      </button>
+                    )}
+                  </div>
+                </div>
+                <div className="row input-group pl-3">
+                  <p>
+                    Already have an account?{" "}
+                    <Link to="/sign-in" className="">
+                      Log In
+                    </Link>
+                  </p>
+                </div>
+              </form>
+            </div>
           </div>
-          <div className="col-md-3"></div>
         </div>
       </div>
       <Footer />

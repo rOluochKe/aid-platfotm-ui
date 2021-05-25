@@ -1,14 +1,12 @@
 import React, { useEffect, Suspense, lazy } from "react";
 import "../../styles/home.css";
-import { Link } from "react-router-dom";
-import account from "../../images/account.png";
-import request from "../../images/request.png";
-import volunteer from "../../images/volunteer.png";
+import account from "../../images/signup-for-account-img.jpg";
+import request from "../../images/request-for-help-img.jpg";
+import volunteer from "../../images/volunteer-to-help-img.jpg";
 import Navbar from "../layouts/navbar";
 import { connect } from "react-redux";
 import { requestCounter } from "../../store/actions/requestAction";
 import { userCounter } from "../../store/actions/userAction";
-import Loader from "../pages/requests/loader";
 import Footer from "../layouts/footer";
 
 const Counter = lazy(() => import("../layouts/counter"));
@@ -19,7 +17,6 @@ const Home = (props) => {
     userCounter,
     request_counter,
     user_counter,
-    loading,
   } = props;
 
   useEffect(() => {
@@ -28,25 +25,17 @@ const Home = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  if (loading) return <Loader />;
   return (
     <div>
       <Navbar ownProps={props} />
       <div className="first-section">
-        <div className="inner-content container">
+        <div className="container">
           <div className="row">
-            <div className="col-12 col-sm-8 intro-txt">
+            <div className="col-12 intro-txt">
               <h1>
-                A Better Way <br />
-                To Be a Brothers Keeper
+                A better way to offer help in your community.
               </h1>
-              <div className="">
-                <Link to="/sign-up" className="myBtn">
-                  Create a Free Account
-                </Link>
-              </div>
             </div>
-            <div className="col-sm-4"></div>
           </div>
         </div>
       </div>
@@ -55,30 +44,18 @@ const Home = (props) => {
           <Counter request={request_counter} user={user_counter} />
         )}
       </Suspense>
-      <div className="second-section container-fluid pt-4 pb-4 mb-5">
-        <h1 className="second-section-heading">
-          Let us come together to help in the community
-        </h1>
-        <p className="second-section-text">
-          Technology can be used in many ways, but it's best used to help
-          people.
-          <br /> This can be at the global level, or it can be used to make a
-          difference right outside your door!
-        </p>
-      </div>
       <div className="third-section container mt-5 mb-5">
-        <h1 className="second-section-heading">How It Works</h1>
+        <h1 className="second-section-heading mt-3 mb-4">How The App Works</h1>
         <div className="row">
           <div className="col-12 col-md-4 mb-2">
             <div className="card">
               <img src={account} alt="account-pix" className="img-fluid" />
               <div className="card-body">
                 <h5 className="card-heading">
-                  Sign Up<br /> for account
+                  Sign Up<br /> an for account
                 </h5>
                 <p className="card-text">
-                  Create an account with your first name, last name, email
-                  address and upload a copy of any government approved ID.
+                  Create an account with with us and enjoy the benefits of belonging to benefitting community.
                 </p>
               </div>
             </div>
@@ -91,8 +68,8 @@ const Home = (props) => {
                   Volunteer to<br /> help those in need
                 </h5>
                 <p className="card-text">
-                  Use the geolocalized map with markers on it indicating people
-                  in need of help in your community.
+                  We use google maps and markers to show people
+                  in need of our help in the community.
                 </p>
               </div>
             </div>
@@ -105,8 +82,7 @@ const Home = (props) => {
                   Request for help<br /> from the community
                 </h5>
                 <p className="card-text">
-                  Submit a request for help with a brief description, type of
-                  request and your location.
+                  Submit a request for help and people from your community will come together to your rescue.
                 </p>
               </div>
             </div>

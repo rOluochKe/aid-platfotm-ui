@@ -27,7 +27,7 @@
 
 .quick_links a:hover,
 .service_links a:hover {
-  color: #083e9e;
+  color: #000000;
 }
 
 .service_links .social_links a span {
@@ -40,7 +40,7 @@
 }
 
 .footer-logo {
-  color: #083e9e;
+  color: #000000;
 }
 
 .footer-text {
@@ -55,5 +55,5 @@
 }
 
 .bg-footer {
-  background-color: #083e9e;
+  background-color: #000000;
 }

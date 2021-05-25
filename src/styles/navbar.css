@@ -1,7 +1,7 @@
 .nav-link,
 .navbar-brand {
   color: #fff !important;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .action-btn:hover {
@@ -13,5 +13,10 @@
 }
 
 .nav-bg {
-  background-color: #083e9e;
+  background-color: #000000;
+  width: 100%;
+}
+
+.navbar-toggler-icon {
+  background-color: #fff;
 }

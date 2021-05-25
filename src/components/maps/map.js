@@ -13,6 +13,7 @@ import red from "../../images/red-icon.png";
 // set map container size
 const containerStyle = {
   width: "100%",
+  height: "100%",
   minHeight: "100vh",
 };
 
@@ -124,3 +125,4 @@ const Map = ({ requests, userLocation }) => {
 };
 
 export default Map;
+ 

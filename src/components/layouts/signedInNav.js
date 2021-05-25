@@ -42,7 +42,7 @@ const SignedInNav = (props) => {
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
               <NavLink className="nav-link other-btn" to="/me/dashboard">
-                Map Requests
+                Make Request
               </NavLink>
             </li>
             <li className="nav-item">

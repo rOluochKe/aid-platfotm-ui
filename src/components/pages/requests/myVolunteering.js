@@ -5,7 +5,7 @@ import moment from "moment";
 const MyVolunteering = ({ my_volunteerings }) => {
   return (
     <div>
-      <h5 className="my-request-heading">My Volunteering</h5>
+      <h4 className="my-request-heading text-left">My Volunteering</h4>
       {my_volunteerings && my_volunteerings.length !== 0 ? (
         my_volunteerings.map((volunteer) => {
           return (
@@ -60,7 +60,7 @@ const MyVolunteering = ({ my_volunteerings }) => {
           );
         })
       ) : (
-        <div className="alert alert-primary" role="alert">
+        <div className="alert alert-primary text-left" role="alert">
           You haven't volunteered for any request yet!
         </div>
       )}

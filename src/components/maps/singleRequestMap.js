@@ -13,7 +13,7 @@ import red from "../../images/red-icon.png";
 // set map container size
 const containerStyle = {
   width: "100%",
-  height: "50vh",
+  height: "60vh",
 };
 
 const SingleRequestMap = ({ request }) => {

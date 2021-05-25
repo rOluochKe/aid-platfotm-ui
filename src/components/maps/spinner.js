@@ -1,5 +1,5 @@
 import React from "react";
-import { ClipLoader } from "react-spinners";
+import { BarLoader } from "react-spinners";
 
 const Spinner = () => {
   return (
@@ -7,7 +7,7 @@ const Spinner = () => {
       <div className="col-md-4"></div>
       <div className="col-sm-12 col-md-4">
         <div className="sweet-loading">
-          <ClipLoader size={50} color={"#083E9E"} />
+          <BarLoader size={50} color={"#000000"} />
           <p>Loading map please wait...</p>
         </div>
       </div>

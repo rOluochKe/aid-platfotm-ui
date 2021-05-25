@@ -80,15 +80,15 @@ const SingleRequest = (props) => {
       <div className="container single-banner mt-5">
         <div className="row">
           <div className="col-12 col-md-7 mb-3">
-            <div className="card">
-              <form className="submit-help-form pl-2 pr-2">
+            <div>
+              <form className="submit-help-form pr-2">
                 <ToastContainer />
-                <h5 className="text-left">Do You Want to Volunteer?</h5>
+                <h5 className="text-left">Do you want to volunteer?</h5>
                 <div className="row input-group">
                   <p className="text-left text-danger pl-3">{error}</p>
                   <div className="col-12 mb-3">
                     <label>
-                      Message<span className="text-danger">*</span>
+                      Leave a message <span className="text-danger">*</span>
                     </label>
                     <textarea
                       className="form-control"
@@ -100,11 +100,11 @@ const SingleRequest = (props) => {
                   </div>
                 </div>
                 {request.volunteers.find(algo) ? (
-                  <p className="text-danger">
+                  <p className="text-danger text-left">
                     You have already volunteered for this request.
                   </p>
                 ) : getUser().user_id === request.user_id ? (
-                  <p className="text-danger">
+                  <p className="text-danger text-left">
                     You can't volunteer on your own request.
                   </p>
                 ) : (
@@ -134,8 +134,8 @@ const SingleRequest = (props) => {
 
           <div className="col-12 col-md-5 mb-5">
             <div className="about-volunteers">
-              <div className="card">
-                <h5 className="pl-2">Volunteers For This Request</h5>
+              <div>
+                <h5 className="">Volunteers for this request</h5>
                 {request.volunteers.length !== 0 ? (
                   <div className="table-responsive pl-2">
                     <table className="table">
@@ -161,7 +161,7 @@ const SingleRequest = (props) => {
                     </table>
                   </div>
                 ) : (
-                  <div className="alert alert-primary" role="alert">
+                  <div className="alert alert-primary text-left" role="alert">
                     No volunteer(s) yet!
                   </div>
                 )}

@@ -1,5 +1,5 @@
 import React from "react";
-import { BounceLoader } from "react-spinners";
+import { BarLoader } from "react-spinners";
 
 const oversabi = {
   display: "flex",
@@ -12,7 +12,7 @@ const Loader = () => {
   return (
     <div style={{ width: "100%", minHeight: "100vh" }}>
       <div className="sweet-loading" style={oversabi}>
-        <BounceLoader size={150} color={"#083E9E"} />
+        <BarLoader size={150} color={"#000000"} />
       </div>
     </div>
   );

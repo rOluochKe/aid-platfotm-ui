@@ -7,7 +7,7 @@
 label {
   float: left;
   margin-bottom: 0px !important;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .auth-heading {
@@ -15,12 +15,12 @@ label {
   line-height: 40px;
   font-weight: bold;
   text-align: left;
-  color: #083e9e;
+  color: #000000;
   margin-bottom: 0px;
 }
 
 .auth-text {
   color: #627081;
   text-align: left;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-family: 'Roboto', sans-serif;
 }

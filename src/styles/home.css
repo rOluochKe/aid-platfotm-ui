@@ -1,8 +1,8 @@
 .first-section {
   width: 100%;
-  height: 100vh;
-  background-image: url("../images/woman-bg.png");
-  background-size: 100% 100%;
+  height: 75vh;
+  background-image: url("../images/volunteer.jpg");
+  background-size: contain;
 }
 
 .inner-content {
@@ -19,12 +19,12 @@
   line-height: 55px;
   letter-spacing: -2px;
   font-weight: bold;
-  color: #083e9e;
+  color: #000000;
   margin-top: 50px;
   margin-bottom: 10px;
-  text-align: left;
+  text-align: center;
   float: left;
-  width: 50%;
+  width: 100%;
 }
 
 .myBtn {
@@ -45,35 +45,16 @@
 .myBtn:hover {
   text-decoration: none;
   background-color: #fff;
-  color: #083e9e;
+  color: #000000;
   font-weight: 600;
-  border: 1px solid #083e9e;
-}
-
-.second-section {
-  background-color: #fbfbfb;
-  width: 100%;
-  height: auto;
-}
-
-.second-section-heading {
-  font-size: 35px;
-  line-height: 40px;
-  margin-bottom: 10px;
-  color: #083e9e;
-  font-weight: bold;
-}
-
-.second-section-text {
-  color: #627081;
-  font-size: 18px;
+  border: 1px solid #000000;
 }
 
 .card-heading {
   font-size: 30px;
   line-height: 30px;
   margin-bottom: 10px;
-  color: #083e9e;
+  color: #000000;
   font-weight: bold;
   text-align: left;
 }
@@ -85,25 +66,9 @@
   text-align: left;
 }
 
-.fourth-section {
-  background-color: #083e9e;
-  color: #fff;
-  height: auto;
-}
-
-.fourth-section-heading {
-  font-size: 35px;
-  line-height: 40px;
-  margin-bottom: 10px;
-  font-weight: bold;
-}
-
-.fourth-section-text {
-  font-size: 18px;
-}
-
 @media only screen and (max-width: 600px) {
   .first-section {
-    background-image: none;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 }

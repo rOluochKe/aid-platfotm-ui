@@ -86,161 +86,166 @@ const ReqForm = ({ createRequest, processing }) => {
     }
   };
   return (
-    <div className="pl-3">
-      <form className="card mt-2 mb-3 pl-3 request-form">
-        <ToastContainer />
-        <h3 className="text-left">Create a request</h3>
-        <p className="text-left text-danger">{error}</p>
-        <div className="row input-group">
-          <div className="col-12 mb-3">
-            <label>
-              Title<span className="text-danger">*</span>{" "}
-              <small>{title.length !== 0 ? `(${title.length})` : null}</small>
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              maxLength="50"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              placeholder="title"
-              aria-label="title"
-            />
-          </div>
-        </div>
-        <div className="row input-group">
-          <div className="col-12 mb-3">
-            <label>
-              Type<span className="text-danger">*</span>
-            </label>
-            <select
-              type="text"
-              className="form-control"
-              onChange={(e) => setType(e.target.value)}
-            >
-              <option value="0">select request type...</option>
-              <option value="one-time">One-time task</option>
-              <option value="material">Material need</option>
-            </select>
-          </div>
-        </div>
-        <div className="row input-group">
-          <div className="col-12 mb-3">
-            <label>
-              Description<span className="text-danger">*</span>{" "}
-              <small>
-                {description.length !== 0 ? `(${description.length})` : null}
-              </small>
-            </label>
-            <textarea
-              className="form-control"
-              rows="5"
-              maxLength="300"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-            />
-          </div>
-        </div>
-        <div className="row input-group">
-          <div className="col-12 mb-3">
-            <PlacesAutocomplete
-              value={address}
-              onChange={setAddress}
-              onSelect={handleSelect}
-            >
-              {({
-                getInputProps,
-                suggestions,
-                getSuggestionItemProps,
-                loading,
-              }) => (
-                <div>
-                  <label>
-                    Location<span className="text-danger">* </span>
-                    <small>
-                      (start typing and select your location from the drop down
-                      options below)
-                    </small>
-                  </label>
-                  <input
-                    {...getInputProps()}
-                    type="text"
-                    className="form-control"
-                    placeholder="location"
-                    aria-label="location"
-                  />
-                  <div className="autocomplete-dropdown mb-2 text-left pl-3">
-                    {loading ? <div>loading...</div> : null}
-                    {suggestions.map((suggestion, index) => {
-                      const style = {
-                        backgroundColor: suggestion.active ? "#083E9E" : "#fff",
-                        color: suggestion.active ? "#fff" : "#083E9E",
-                        cursor: suggestion.active ? "pointer" : "pointer",
-                      };
-                      return (
-                        <div
-                          {...getSuggestionItemProps(suggestion, { style })}
-                          key={index}
-                        >
-                          {suggestion.description}
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              )}
-            </PlacesAutocomplete>
-          </div>
-        </div>
-        <div className="row btn-group pr-4">
-          <div className="col-12 col-md-4 mb-3">
-            {processing ? (
-              <img
-                src={loader}
-                style={{ height: "70px" }}
-                alt="processing-loader"
+    <div className="pl-3 mt-4">
+      <div className="card mb-3">
+        <form className="card-body request-form">
+          <ToastContainer />
+          <h3 className="text-left">Create a request</h3>
+          <p className="text-left text-danger">{error}</p>
+          <div className="row input-group">
+            <div className="col-12 mb-3">
+              <label>
+                Title<span className="text-danger">*</span>{" "}
+                <small>{title.length !== 0 ? `(${title.length})` : null}</small>
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                maxLength="50"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                placeholder="title"
+                aria-label="title"
               />
-            ) : (
-              <button
-                type="button"
-                className="form-control btn btn-primary"
-                onClick={handleSubmit}
+            </div>
+          </div>
+          <div className="row input-group">
+            <div className="col-12 mb-3">
+              <label>
+                Type<span className="text-danger">*</span>
+              </label>
+              <select
+                type="text"
+                className="form-control"
+                onChange={(e) => setType(e.target.value)}
               >
-                Submit
-              </button>
-            )}
+                <option value="0">select request type...</option>
+                <option value="one-time">One-time task</option>
+                <option value="material">Material need</option>
+              </select>
+            </div>
           </div>
-        </div>
-      </form>
-      <div className="card mb-2">
-        <div className="row pl-3">
-          <h6>
-            <strong>Legend:</strong>
-          </h6>
-        </div>
-        <div className="row">
-          <ul className="ul-list">
-            <li>
-              <img
-                src="https://maps.google.com/mapfiles/kml/pushpin/grn-pushpin.png"
-                style={{ height: "30px" }}
-                alt="marker"
+          <div className="row input-group">
+            <div className="col-12 mb-3">
+              <label>
+                Description<span className="text-danger">*</span>{" "}
+                <small>
+                  {description.length !== 0 ? `(${description.length})` : null}
+                </small>
+              </label>
+              <textarea
+                className="form-control"
+                rows="5"
+                maxLength="300"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
               />
-              <span className="legend-text">
-                Material Need: i.e. A homeless woman on is in needs of blanket.
-              </span>
-            </li>
-            <li>
-              <img
-                src="https://maps.google.com/mapfiles/kml/pushpin/red-pushpin.png"
-                style={{ height: "30px" }}
-                alt="marker"
-              />
-              <span className="legend-text">
-                One Time Need: i.e. To help carry a piece of heavy furniture.
-              </span>
-            </li>
-          </ul>
+            </div>
+          </div>
+          <div className="row input-group">
+            <div className="col-12 mb-3">
+              <PlacesAutocomplete
+                value={address}
+                onChange={setAddress}
+                onSelect={handleSelect}
+              >
+                {({
+                  getInputProps,
+                  suggestions,
+                  getSuggestionItemProps,
+                  loading,
+                }) => (
+                  <div className="text-left">
+                    <label>
+                      Location<span className="text-danger">* </span>
+                      <small>
+                        (start typing and select your location from the drop down
+                        options below)
+                      </small>
+                    </label>
+                    <input
+                      {...getInputProps()}
+                      type="text"
+                      className="form-control"
+                      placeholder="location"
+                      aria-label="location"
+                    />
+                    <div className="autocomplete-dropdown mb-2 text-left pl-3">
+                      {loading ? <div>loading...</div> : null}
+                      {suggestions.map((suggestion, index) => {
+                        const style = {
+                          backgroundColor: suggestion.active ? "#083E9E" : "#fff",
+                          color: suggestion.active ? "#fff" : "#083E9E",
+                          cursor: suggestion.active ? "pointer" : "pointer",
+                        };
+                        return (
+                          <div
+                            {...getSuggestionItemProps(suggestion, { style })}
+                            key={index}
+                          >
+                            {suggestion.description}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+              </PlacesAutocomplete>
+            </div>
+          </div>
+          <div className="row pr-4">
+            <div className="col-12 mb-3">
+              {processing ? (
+                <img
+                  src={loader}
+                  style={{ height: "70px" }}
+                  alt="processing-loader"
+                />
+              ) : (
+                <button
+                  type="button"
+                  className="form-control btn btn-primary"
+                  onClick={handleSubmit}
+                >
+                  Submit Request
+                </button>
+              )}
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div className="card mb-4">
+        <div className="card-body">
+          <div className="row pl-3">
+            <h6>
+              <strong>Legend:</strong>
+            </h6>
+          </div>
+          <div className="row">
+            <ul className="ul-list">
+              <li className="mb-2">
+                <img
+                  src="https://maps.google.com/mapfiles/kml/pushpin/grn-pushpin.png"
+                  style={{ height: "30px" }}
+                  alt="marker"
+                />
+                <span className="legend-text">
+                  Material Need: i.e. A homeless woman on is in needs of blanket.
+                </span>
+              </li>
+              <li>
+                <img
+                  src="https://maps.google.com/mapfiles/kml/pushpin/red-pushpin.png"
+                  style={{ height: "30px" }}
+                  alt="marker"
+                />
+                <span className="legend-text">
+                  One Time Need: i.e. To help carry a piece of heavy furniture.
+                </span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
