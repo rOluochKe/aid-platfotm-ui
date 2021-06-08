@@ -47,7 +47,7 @@ const SignedInNav = (props) => {
             </li>
             <li className="nav-item">
               <NavLink className="nav-link other-btn" to="/users/activities">
-                Activities
+                My Requests
               </NavLink>
             </li>
             <li className="nav-item">

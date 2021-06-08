@@ -7,8 +7,8 @@
 - Bootstrap
 
 ## Back End: Rails API
-> View in this [REPO](https://github.com/rOluochKe/aid-platform)
-> [Live Demo](https://naughty-shannon-943620.netlify.app/)
+- View in this [REPO](https://github.com/rOluochKe/aid-platform)
+- [Live Demo]()
 
 ## Usage
 
