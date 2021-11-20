@@ -9,7 +9,7 @@ import MyActivities from './components/pages/requests/myActivities'
 import SingleRequest from './components/pages/requests/singleRequest'
 import Message from './components/pages/requests/message'
 import Messages from './components/pages/requests/messages'
-import allRequests from './components/pages/requests/allRequests'
+import ViewRequests from './components/pages/requests/ViewRequests'
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
           <Route exact path='/' component={Home} />
           <Route path='/sign-in' component={Signin} />
           <Route path='/sign-up' component={Signup} />
-          <Route path='/all-requests' component={allRequests} />
+          <Route path='/all-requests' component={ViewRequests} />
           <Route path='/me/dashboard' component={Dashboard} />
           <Route path='/users/activities' component={MyActivities} />
           <Route exact path='/request/:id/:title' component={SingleRequest} />
