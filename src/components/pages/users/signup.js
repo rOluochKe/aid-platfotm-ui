@@ -1,165 +1,167 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import Navbar from "../../layouts/navbar";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { connect } from "react-redux";
-import { signup } from "../../../store/actions/userAction";
-import processing from "../../../images/loader.gif";
-import Footer from "../../layouts/footer";
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
+import Navbar from '../../layouts/navbar'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import { connect } from 'react-redux'
+import { signup } from '../../../store/actions/userAction'
+import processing from '../../../images/loader.gif'
+import Footer from '../../layouts/footer'
 
 const Signup = (props) => {
-  const { signup, notification } = props;
+  const { signup, notification } = props
 
   //setup our states using hooks
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [firstname, setFirstname] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [image, setImage] = useState("");
-  const [btnValue] = useState("Sign Up");
-  const [error, setError] = useState("");
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [firstname, setFirstname] = useState('')
+  const [lastname, setLastname] = useState('')
+  const [image, setImage] = useState('')
+  const [btnValue] = useState('Sign Up')
+  const [error, setError] = useState('')
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     // check if all fields are filled
     if (!firstname && !lastname && !image && !email && !password) {
-      setError("*All fields are required");
-      return false;
+      setError('*All fields are required')
+      return false
     }
     if (!firstname) {
-      setError("*Firstname is required");
-      return false;
+      setError('*Firstname is required')
+      return false
     }
     if (!lastname) {
-      setError("*Lastname is required");
-      return false;
+      setError('*Lastname is required')
+      return false
     }
     if (!image) {
-      setError("*Image file is required");
-      return false;
+      setError('*Image file is required')
+      return false
     }
     if (!email) {
-      setError("*Email is required");
-      return false;
+      setError('*Email is required')
+      return false
     }
     if (!password) {
-      setError("*Password is required");
-      return false;
+      setError('*Password is required')
+      return false
     }
     // check if the email is valid
     if (/\S+@\S+\.\S+/.test(email) === false) {
-      setError("*Enter a valid email address");
-      return false;
+      setError('*Enter a valid email address')
+      return false
     }
 
     // check password length
     if (password.length < 6) {
-      setError("*Password must be maximum of 6 characters");
-      return false;
+      setError('*Password must be maximum of 6 characters')
+      return false
     }
 
     // if all data is provided
     if (email && password && firstname && lastname && image) {
-      setError("");
+      setError('')
 
       // prepare the data
-      let user = new FormData();
-      user.append("firstname", firstname);
-      user.append("lastname", lastname);
-      user.append("image", image);
-      user.append("email", email);
-      user.append("password", password);
+      let user = new FormData()
+      user.append('firstname', firstname)
+      user.append('lastname', lastname)
+      user.append('image', image)
+      user.append('email', email)
+      user.append('password', password)
 
       // send details to be processed
-      signup(user);
+      signup(user)
     }
-  };
+  }
   return (
     <div>
       <Navbar ownProps={props} />
-      <div className="container-fluid signup-banner">
-        <div className="row pl-3">
-          <div className="offset-md-3 col-md-6">
+      <div className='container-fluid signup-banner'>
+        <div className='row pl-3'>
+          <div className='offset-md-3 col-md-6'>
             <ToastContainer />
-            <div className="card bg-light mt-5 mb-5">
-              <form className="card-body">
-                <h1 className="auth-heading">Sign Up</h1>
-                <p className="text-left text-danger">{error}</p>
-                <div className="row input-group">
-                  <div className="col-12 col-md-6 mb-3">
+            <div className='card bg-light mt-5 mb-5'>
+              <form className='card-body'>
+                <h1 className='auth-heading'>Sign Up</h1>
+                <p className='text-left text-danger'>{error}</p>
+                <div className='row input-group'>
+                  <div className='col-12 col-md-6 mb-3'>
                     <label>First Name</label>
                     <input
-                      type="text"
-                      className="form-control"
-                      placeholder="First name"
+                      type='text'
+                      className='form-control'
+                      placeholder='First name'
                       value={firstname}
                       onChange={(e) => setFirstname(e.target.value)}
-                      aria-label="firstname"
+                      aria-label='firstname'
                     />
                   </div>
-                  <div className="col-12 col-md-6 mb-3">
+                  <div className='col-12 col-md-6 mb-3'>
                     <label>Last Name</label>
                     <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Last name"
+                      type='text'
+                      className='form-control'
+                      placeholder='Last name'
                       value={lastname}
                       onChange={(e) => setLastname(e.target.value)}
-                      aria-label="lastname"
+                      aria-label='lastname'
                     />
                   </div>
                 </div>
-                <div className="row input-group">
-                  <div className="col-12 mb-3">
+                <div className='row input-group'>
+                  <div className='col-12 mb-3'>
                     <label>Email</label>
                     <input
-                      type="email"
-                      className="form-control"
-                      placeholder="Email address"
+                      type='email'
+                      className='form-control'
+                      placeholder='Email address'
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      aria-label="email"
+                      aria-label='email'
                     />
                   </div>
                 </div>
-                <div className="row input-group text-left">
-                  <div className="col-12 mb-3">
-                    <label>Identification Card (Government Approved)</label>
+                <div className='row input-group text-left'>
+                  <div className='col-12 mb-3'>
+                    <label>
+                      ID(Government Approved) - Formats(.jpg, .png, .pdf)
+                    </label>
                     <input
-                      type="file"
-                      className="form-control"
+                      type='file'
+                      className='form-control'
                       onChange={(e) => setImage(e.target.files[0])}
-                      accept="image/png,image/jpeg,application/pdf"
+                      accept='image/png,image/jpeg,application/pdf'
                     />
                   </div>
                 </div>
-                <div className="row input-group">
-                  <div className="col-12 mb-3">
+                <div className='row input-group'>
+                  <div className='col-12 mb-3'>
                     <label>Password</label>
                     <input
-                      type="password"
-                      className="form-control"
-                      placeholder="Password"
+                      type='password'
+                      className='form-control'
+                      placeholder='Password'
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
-                      aria-label="password"
+                      aria-label='password'
                     />
                   </div>
                 </div>
-                <div className="row w-50 mb-3">
-                  <div className="col-12">
+                <div className='row w-50 mb-3'>
+                  <div className='col-12'>
                     {notification ? (
                       <img
                         src={processing}
-                        style={{ height: "70px" }}
-                        alt="processing-loader"
+                        style={{ height: '70px' }}
+                        alt='processing-loader'
                       />
                     ) : (
                       <button
-                        type="button"
-                        className="form-control btn btn-primary"
+                        type='button'
+                        className='form-control btn btn-primary'
                         onClick={handleSubmit}
                       >
                         {btnValue}
@@ -167,10 +169,10 @@ const Signup = (props) => {
                     )}
                   </div>
                 </div>
-                <div className="row input-group pl-3">
+                <div className='row input-group pl-3'>
                   <p>
-                    Already have an account?{" "}
-                    <Link to="/sign-in" className="">
+                    Already have an account?{' '}
+                    <Link to='/sign-in' className=''>
                       Log In
                     </Link>
                   </p>
@@ -182,19 +184,19 @@ const Signup = (props) => {
       </div>
       <Footer />
     </div>
-  );
-};
+  )
+}
 
 const mapStateToProps = (state) => {
   return {
     notification: state.user.notification,
-  };
-};
+  }
+}
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     signup: (user) => dispatch(signup(user, ownProps)),
-  };
-};
+  }
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Signup);
+export default connect(mapStateToProps, mapDispatchToProps)(Signup)

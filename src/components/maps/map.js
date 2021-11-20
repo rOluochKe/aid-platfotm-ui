@@ -1,51 +1,51 @@
-import React, { useState, Fragment } from "react";
+import React, { useState, Fragment } from 'react'
 import {
   GoogleMap,
   Marker,
   InfoWindow,
-  useLoadScript,
-} from "@react-google-maps/api";
-import { Link } from "react-router-dom";
-import Spinner from "./spinner";
-import green from "../../images/green-icon.png";
-import red from "../../images/red-icon.png";
+  // useLoadScript,
+} from '@react-google-maps/api'
+import { Link } from 'react-router-dom'
+// import Spinner from './spinner'
+import green from '../../images/green-icon.png'
+import red from '../../images/red-icon.png'
 
 // set map container size
 const containerStyle = {
-  width: "100%",
-  height: "100%",
-  minHeight: "100vh",
-};
+  width: '100%',
+  height: '100%',
+  minHeight: '100vh',
+}
 
 const Map = ({ requests, userLocation }) => {
   // pass google map api key to load the Google Maps script
-  const { isLoaded } = useLoadScript({
-    googleMapsApiKey: process.env.REACT_APP_API_KEY,
-  });
+  // const { isLoaded } = useLoadScript({
+  //   googleMapsApiKey: process.env.REACT_APP_API_KEY,
+  // })
 
   // set up useState hook
-  const [selectedPlace, setSelectedPlace] = useState(null);
-  const [markerMap, setMarkerMap] = useState({});
-  const [infoWindowOpen, setInfoWindowOpen] = useState(false);
+  const [selectedPlace, setSelectedPlace] = useState(null)
+  const [markerMap, setMarkerMap] = useState({})
+  const [infoWindowOpen, setInfoWindowOpen] = useState(false)
 
   // mapping all of the places to actual Marker objects
   const markerLoadHandler = (marker, place) => {
     return setMarkerMap((prevState) => {
-      return { ...prevState, [place.id]: marker };
-    });
-  };
+      return { ...prevState, [place.id]: marker }
+    })
+  }
 
   const markerClickHandler = (event, place) => {
     // remember which place was clicked
-    setSelectedPlace(place);
+    setSelectedPlace(place)
 
     // this close the first marker infoWindow Window on the click of the second marker
     if (infoWindowOpen) {
-      setInfoWindowOpen(false);
+      setInfoWindowOpen(false)
     }
 
-    setInfoWindowOpen(true);
-  };
+    setInfoWindowOpen(true)
+  }
 
   const showMap = () => {
     return (
@@ -55,9 +55,10 @@ const Map = ({ requests, userLocation }) => {
           center={userLocation}
           zoom={13}
         >
+          {console.log(requests, 'places')}
           {requests.map((request) =>
             // request.reqtype === 'Material need'
-            request.reqtype === "material" ? (
+            request.reqtype === 'material' ? (
               <Marker
                 key={request.id}
                 position={{ lat: request.lat, lng: request.lng }}
@@ -82,35 +83,35 @@ const Map = ({ requests, userLocation }) => {
               onCloseClick={() => setInfoWindowOpen(false)}
             >
               <div>
-                <h6 className="text-left">{selectedPlace.title}</h6>
-                <p className="text-left">
+                <h6 className='text-left'>{selectedPlace.title}</h6>
+                <p className='text-left'>
                   <i>{selectedPlace.address}</i>
                 </p>
-                <p className="text-left">{`${selectedPlace.user.firstname} ${selectedPlace.user.lastname}`}</p>
-                <div className="d-flex justify-content-between">
-                  <p className="">
+                <p className='text-left'>{`${selectedPlace.user.firstname} ${selectedPlace.user.lastname}`}</p>
+                <div className='d-flex justify-content-between'>
+                  <p className=''>
                     <strong>Type: </strong>
                     {selectedPlace.reqtype} need
                   </p>
                   {selectedPlace.status === 0 ? (
-                    <p className="">
+                    <p className=''>
                       <strong>Status: </strong>
-                      <span className="text-danger">Unfulfilled</span>
+                      <span className='text-danger'>Unfulfilled</span>
                     </p>
                   ) : (
-                    <p className="">
+                    <p className=''>
                       <strong>Status: </strong>
-                      <span className="text-success">Fulfilled</span>
+                      <span className='text-success'>Fulfilled</span>
                     </p>
                   )}
                 </div>
-                <p className="text-left">{selectedPlace.description}</p>
+                <p className='text-left'>{selectedPlace.description}</p>
                 <Link
-                  className="btn btn-secondary btn-sm"
+                  className='btn btn-secondary btn-sm'
                   to={`/request/${selectedPlace.id}/${selectedPlace.title
                     .toLowerCase()
-                    .split(" ")
-                    .join("-")}`}
+                    .split(' ')
+                    .join('-')}`}
                 >
                   Fulfill this need
                 </Link>
@@ -119,10 +120,10 @@ const Map = ({ requests, userLocation }) => {
           )}
         </GoogleMap>
       </Fragment>
-    );
-  };
-  return isLoaded ? showMap() : <Spinner />;
-};
+    )
+  }
+  // return isLoaded ? showMap() : <Spinner />
+  return showMap()
+}
 
-export default Map;
- 
+export default Map

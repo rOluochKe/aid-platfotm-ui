@@ -1,14 +1,15 @@
 # AID Platform UI
 
 - React
-- api
+- api (Ruby on Rails)
 - Redux
 - Hooks
 - Bootstrap
 
 ## Back End: Rails API
-- View in this [REPO](https://github.com/rOluochKe/aid-platform)
-- [Live Demo]()
+
+- [Backend REPO](https://github.com/rOluochKe/aid-platform)
+- [Live Demo](https://aid-platform-ui.netlify.app/)
 
 ## Usage
 

@@ -11,7 +11,7 @@ import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import Footer from '../../layouts/footer'
 
-const AllMapRequests = lazy(() => import('../../maps/map'))
+const Map = lazy(() => import('../../maps/map'))
 
 const ViewRequests = (props) => {
   const { getRequest, requests, loading } = props
@@ -111,7 +111,7 @@ const ViewRequests = (props) => {
             <h2>Locations on Map</h2>
             <div className='maps-height'>
               <Suspense fallback={<div>Loading...</div>}>
-                {requests && <AllMapRequests requests={requests} />}
+                {requests && <Map requests={requests} />}
               </Suspense>
             </div>
           </div>
