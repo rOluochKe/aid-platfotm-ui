@@ -111,7 +111,7 @@ const ViewRequests = (props) => {
             <h2>Locations on Map</h2>
             <div className='maps-height'>
               <Suspense fallback={<div>Loading...</div>}>
-                {requests && <Map requests={requests} />}
+                {requests && requests.length > 0 && <Map requests={requests} />}
               </Suspense>
             </div>
           </div>

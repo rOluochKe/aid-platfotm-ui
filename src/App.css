@@ -44,3 +44,14 @@ body {
 .maps-height {
   height: 93%;
 }
+
+.map {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.location-icon {
+  font-size: 2rem;
+  color: red;
+}
