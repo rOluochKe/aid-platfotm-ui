@@ -42,7 +42,8 @@ body {
 }
 
 .maps-height {
-  height: 93%;
+  min-height: 97%;
+  height: 93vh;
 }
 
 .map {

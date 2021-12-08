@@ -51,7 +51,9 @@ const Dashboard = (props) => {
               <Form createRequest={createRequest} processing={processing} />
             </div>
             <div className='col-12 col-md-7 order-1 order-md-2'>
-              {requests && <Map requests={requests} />}
+              <div className='maps-height'>
+                {requests && <Map requests={requests} />}
+              </div>
             </div>
           </Suspense>
         </div>

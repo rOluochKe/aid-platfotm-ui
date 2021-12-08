@@ -30,7 +30,7 @@ const ViewRequests = (props) => {
       <div className='container mt-3 mb-5'>
         <ToastContainer />
         <div className='row'>
-          <div className='col-md-6'>
+          <div className='col-12 col-md-5 order-2 order-md-1'>
             <h2>View All Requests</h2>
             {requests && requests.length !== 0 ? (
               requests.map((request) => {
@@ -107,7 +107,7 @@ const ViewRequests = (props) => {
               </div>
             )}
           </div>
-          <div className='col-md-6'>
+          <div className='col-12 col-md-7 order-1 order-md-2'>
             <h2>Locations on Map</h2>
             <div className='maps-height'>
               <Suspense fallback={<div>Loading...</div>}>
